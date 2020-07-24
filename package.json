@@ -4,7 +4,7 @@
   "repository": "https://github.com/getfider/fider",
   "private": true,
   "dependencies": {
-    "dompurify": "2.0.6",
+    "dompurify": "^2.0.12",
     "marked": "0.7.0",
     "react": "16.10.2",
     "react-dom": "16.10.2",
@@ -35,7 +35,7 @@
     "fork-ts-checker-webpack-plugin": "1.5.0",
     "jest": "24.9.0",
     "mini-css-extract-plugin": "0.8.0",
-    "node-sass": "4.12.0",
+    "node-sass": "^4.14.1",
     "prettier": "1.18.2",
     "puppeteer": "1.20.0",
     "reflect-metadata": "0.1.13",
