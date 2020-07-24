@@ -46,7 +46,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.1.0",
-    "typescript": "3.6.4",
+    "typescript": "^3.9.7",
     "webpack": "4.41.1",
     "webpack-bundle-analyzer": "3.5.2",
     "webpack-clean-obsolete-chunks": "0.4.0",

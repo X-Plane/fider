@@ -27,7 +27,7 @@ const navigator = {
     }
   },
   replaceState: (path: string): void => {
-    if (history.replaceState) {
+    if (typeof history.replaceState === "function") {
       const newURL = Fider.settings.baseURL + path;
       window.history.replaceState({ path: newURL }, "", newURL);
     }
