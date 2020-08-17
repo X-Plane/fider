@@ -1,9 +1,10 @@
 import "./SignInControl.scss";
 
 import React, { useState } from "react";
-import { SocialSignInButton, Form, Button, Input, Message } from "@fider/components";
+import { SocialSignInButton, Form, Button, Input, Message, PrivacyPolicy } from "@fider/components";
 import { device, actions, Failure, isCookieEnabled } from "@fider/services";
 import { useFider } from "@fider/hooks";
+import { Checkbox } from './form/Checkbox';
 
 interface SignInControlProps {
   useEmail: boolean;
@@ -14,6 +15,7 @@ interface SignInControlProps {
 export const SignInControl: React.FunctionComponent<SignInControlProps> = props => {
   const fider = useFider();
   const [email, setEmail] = useState("");
+  const [gdprFlag, setGdprFlag] = useState(false);
   const [error, setError] = useState<Failure | undefined>(undefined);
 
   const signIn = async () => {
@@ -75,11 +77,15 @@ export const SignInControl: React.FunctionComponent<SignInControlProps> = props 
               onChange={setEmail}
               placeholder="yourname@example.com"
               suffix={
-                <Button type="submit" color="positive" disabled={email === ""} onClick={signIn}>
+                <Button type="submit" color="positive" disabled={email === "" || !gdprFlag} onClick={signIn}>
                   Sign in
                 </Button>
               }
             />
+            
+            <Checkbox field="gdprConsent" onChange={setGdprFlag}>
+              I consent for my personal data (including name, email address, and web site) to be used in accordance with this site's <PrivacyPolicy />.
+              Your name and web site will be publicly visible with your comments, but Laminar Research will never share your email address with third parties.</Checkbox>
           </Form>
         </div>
       )}
