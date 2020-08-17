@@ -84,7 +84,7 @@ export const SignInControl: React.FunctionComponent<SignInControlProps> = props 
             />
             
             <Checkbox field="gdprConsent" onChange={setGdprFlag}>
-              I consent for my personal data (including name, email address, and web site) to be used in accordance with this site's <PrivacyPolicy />.
+              I consent for my personal data (including name and email address) to be used in accordance with this site's <PrivacyPolicy />.
               Your name and web site will be publicly visible with your comments, but Laminar Research will never share your email address with third parties.</Checkbox>
           </Form>
         </div>
