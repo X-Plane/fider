@@ -21,6 +21,12 @@ func Index() web.HandlerFunc {
 			Limit: c.QueryParam("limit"),
 			Tags:  c.QueryParamAsArray("tags"),
 		}
+
+		// If we're provided no parameters except maybe 'limit', set the default view to 'most-popular' rather than 'trending'
+		if searchPosts.View == "" {
+			searchPosts.View = "most-wanted"
+		}
+
 		getAllTags := &query.GetAllTags{}
 		countPerStatus := &query.CountPostPerStatus{}
 
