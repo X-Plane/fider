@@ -35,6 +35,10 @@ func SingleTenant() web.MiddlewareFunc {
 				c.SetTenant(firstTenant.Result)
 			}
 
+			if env.Config.ForceSSL && env.Config.HostDomain != "" && c.Request.URL.Scheme != "https" {
+				return c.Redirect("https://" + env.Config.HostDomain + c.Request.URL.Path + "?" + c.Request.URL.RawQuery)
+			}
+
 			return next(c)
 		}
 	}
