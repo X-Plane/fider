@@ -78,7 +78,7 @@ const HomePage = (props: HomePageProps) => {
           {isLonely() ? (
             <Lonely />
           ) : title ? (
-            <SimilarPosts title={title} tags={props.tags} />
+            <SimilarPosts className="desktop-similar-posts hidden-sm" title={title} tags={props.tags} />
           ) : (
             <PostsContainer posts={props.posts} tags={props.tags} countPerStatus={props.countPerStatus} />
           )}

@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button, ButtonClickEvent, Input, Form, TextArea, MultiImageUploader } from "@fider/components";
 import { SignInModal } from "@fider/components";
 import { cache, actions, Failure } from "@fider/services";
-import { ImageUpload } from "@fider/models";
+import { ImageUpload, Tag } from "@fider/models";
 import { useFider } from "@fider/hooks";
+import { SimilarPosts } from './SimilarPosts';
 
 interface PostInputProps {
   placeholder: string;
   onTitleChanged: (title: string) => void;
+  tags?: Tag[];
 }
 
 const CACHE_TITLE_KEY = "PostInput-Title";
@@ -98,6 +100,9 @@ export const PostInput = (props: PostInputProps) => {
           onChange={handleTitleChange}
           placeholder={props.placeholder}
         />
+        {title && 
+            <SimilarPosts className="mobile-similar-posts hidden-md hidden-lg hidden-xl" title={title} tags={props.tags || []}  />
+        }
         {title && details()}
       </Form>
     </>

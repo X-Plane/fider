@@ -8,6 +8,7 @@ import { FaRegLightbulb } from "react-icons/fa";
 interface SimilarPostsProps {
   title: string;
   tags: Tag[];
+  className?: string;
   user?: CurrentUser;
 }
 
@@ -58,7 +59,7 @@ export class SimilarPosts extends React.Component<SimilarPostsProps, SimilarPost
 
   public render() {
     return (
-      <>
+      <div className={this.props.className || ""}>
         <Heading
           title="Similar posts"
           subtitle="Consider voting on existing posts instead."
@@ -75,7 +76,7 @@ export class SimilarPosts extends React.Component<SimilarPostsProps, SimilarPost
             emptyText={`No similar posts matched '${this.props.title}'.`}
           />
         )}
-      </>
+      </div>
     );
   }
 }

@@ -9,8 +9,8 @@ services:
     container_name: fider_pgdev
     restart: always
     image: postgres:9.6.8
-    volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+#    volumes:
+#      - ./data/postgres:/var/lib/postgresql/data
     ports:
       - "5555:5432"
     environment:
