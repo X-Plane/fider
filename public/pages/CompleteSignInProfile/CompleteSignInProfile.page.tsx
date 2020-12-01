@@ -7,6 +7,7 @@ import { actions, Failure, querystring, Fider } from "@fider/services";
 
 interface CompleteSignInProfilePageState {
   name: string;
+  nameIsValid: boolean;
   error?: Failure;
 }
 
@@ -17,7 +18,8 @@ export default class CompleteSignInProfilePage extends React.Component<HomePageP
     super(props);
     this.key = querystring.get("k");
     this.state = {
-      name: ""
+      name: "",
+      nameIsValid: false
     };
   }
 
@@ -31,7 +33,9 @@ export default class CompleteSignInProfilePage extends React.Component<HomePageP
   };
 
   private setName = (name: string) => {
-    this.setState({ name });
+    let nameCheckRegex = /^[^@]+$/;
+    const nameIsValid = nameCheckRegex.test(name);
+    this.setState({ name, nameIsValid });
   };
 
   private noop = () => {
@@ -54,7 +58,7 @@ export default class CompleteSignInProfilePage extends React.Component<HomePageP
                 placeholder="Name"
                 pattern="^[^@]+$" 
                 suffix={
-                  <Button type="submit" onClick={this.submit} color="positive" disabled={this.state.name === ""}>
+                  <Button type="submit" onClick={this.submit} color="positive" disabled={this.state.name === "" || !this.state.nameIsValid}>
                     Submit
                   </Button>
                 }
