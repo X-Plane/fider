@@ -45,7 +45,7 @@ export default class CompleteSignInProfilePage extends React.Component<HomePageP
           <Modal.Header>Complete your profile</Modal.Header>
           <Modal.Content>
             <p>Because this is your first sign in, please enter your name.</p>
-            <p>Please do not use an email address as your name.</p>
+            <p>Please <strong>do not</strong> use an email address as your name.</p>
             <Form error={this.state.error}>
               <Input
                 field="name"
