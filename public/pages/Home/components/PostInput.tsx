@@ -77,11 +77,11 @@ export const PostInput = (props: PostInputProps) => {
         onChange={handleDescriptionChange}
         value={description}
         minRows={5}
-        placeholder="Describe your suggestion (optional)"
+        placeholder="Describe your suggestion (required)"
       />
       <MultiImageUploader field="attachments" maxUploads={3} previewMaxWidth={100} onChange={setAttachments} />
-      <Button type="submit" color="positive" onClick={submit}>
-        Post Feature Requst
+      <Button type="submit" color="positive" onClick={submit} disabled={description === ""}>
+        Post Feature Request
       </Button>
     </>
   );
