@@ -155,10 +155,9 @@ export default class SignUpPage extends React.Component<{}, SignUpPageState> {
         ) : (
           <>
             <p>We need to identify you to setup your new Fider account.</p>
-            <p>Please do not use an email address for your name.</p>
             <SignInControl useEmail={false} />
             <Form error={this.state.error}>
-              <Input field="name" maxLength={100} pattern="^[^@]+$" onChange={this.setName} placeholder="Name" />
+              <Input field="name" maxLength={100} onChange={this.setName} placeholder="Name" />
               <Input field="email" maxLength={200} onChange={this.setEmail} placeholder="Email" />
             </Form>
           </>
