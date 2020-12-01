@@ -44,7 +44,7 @@ export const Input: React.FunctionComponent<InputProps> = props => {
 
   const pattern = !!props.pattern
     ? props.pattern
-    : "";
+    : "(?s).*";
 
   return (
     <ValidationContext.Consumer>
