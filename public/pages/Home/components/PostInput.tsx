@@ -81,7 +81,7 @@ export const PostInput = (props: PostInputProps) => {
       />
       <MultiImageUploader field="attachments" maxUploads={3} previewMaxWidth={100} onChange={setAttachments} />
       <Button type="submit" color="positive" onClick={submit}>
-        Submit
+        Post Feature Requst
       </Button>
     </>
   );
